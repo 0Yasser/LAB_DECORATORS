@@ -5,13 +5,12 @@ error_message2 = 'STRING MUST BE LONGER THAN FIVE LETTERS'
 def myDecorator(params):
     def wrapper(*args,**kwargs):
         for arg in args:
-            print('arg',arg)
-            if type(arg) is not str:
+            if not isinstance(arg,str):
                 raise TypeError(error_message1)
             if len(arg)<6:
-                raise ValueError('aaa'+error_message2)
+                raise ValueError(error_message2)
         for kwarg in kwargs:
-            if type(kwargs[kwarg]) is not str:
+            if not isinstance(kwargs[kwarg],str):
                 raise TypeError(error_message1)
             if len(kwargs[kwarg])<6:
                 raise ValueError(error_message2)
